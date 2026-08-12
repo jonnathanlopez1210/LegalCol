@@ -1,0 +1,41 @@
+// =============================================================================
+// LAYOUT: Dashboard – shell de la aplicación (Mobile First)
+// =============================================================================
+
+@use '../abstracts' as *;
+
+// --- App wrapper ---
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: $color-bg-app;
+}
+
+// --- Dashboard layout: sidebar + main content ---
+.dashboard-layout {
+  display: flex;
+  flex: 1;
+  min-height: 0; // permite que flex children hagan scroll correctamente
+}
+
+// --- Main content area ---
+.dashboard-content {
+  flex: 1;
+  min-width: 0; // evita overflow en flex
+  padding: $space-6 $space-6;
+  overflow-y: auto;
+
+  @include from($bp-desktop) {
+    padding: $space-8;
+  }
+}
+
+// --- View: cada sección es una "pantalla" dentro del SPA ---
+.view {
+  // Las vistas se apilan como bloques, solo una visible a la vez.
+  // El atributo `hidden` del HTML las oculta semánticamente.
+  // Cuando se muestran, se comportan como bloque normal.
+  @include flex-column;
+  gap: $space-6;
+}

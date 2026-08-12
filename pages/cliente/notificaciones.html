@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="LegalCol – Notifications" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Notifications – LegalCol</title>
+    <link rel="stylesheet" href="../../css/main.css" />
+    <script src="../../js/auth/users.js"></script>
+    <script src="../../js/auth/auth.js"></script>
+    <script src="../../js/auth/guard.js"></script>
+  </head>
+
+  <body>
+
+    <section class="view" id="view-notifications" aria-labelledby="notifications-title">
+
+      <div class="page-header page-header--row">
+        <div class="page-header__text">
+          <h1 class="page-header__title" id="notifications-title">Notifications</h1>
+          <p class="page-header__subtitle">Activity across your cases, documents and billing.</p>
+        </div>
+        <a class="link" href="#" data-action="mark-all-read" aria-label="Mark all notifications as read">
+          Mark all as read
+        </a>
+      </div>
+
+      <div class="notification-group" aria-label="Notifications from today">
+        <p class="notification-group__label">Today</p>
+        <ul class="notification-list" aria-label="Today's notifications">
+
+          <li class="notification-item notification-item--unread" aria-label="Unread notification">
+            <span class="notification-item__dot" aria-label="Unread" aria-hidden="true"></span>
+            <div class="notification-item__content">
+              <p class="notification-item__title">New document uploaded</p>
+              <p class="notification-item__description">
+                Jordan Avery added Witness_Statement.docx to #CS-2041
+              </p>
+            </div>
+            <span class="notification-item__time">15m ago</span>
+          </li>
+
+          <li class="notification-item" aria-label="Read notification">
+            <span class="notification-item__dot notification-item__dot--read"
+              aria-label="Read" aria-hidden="true"></span>
+            <div class="notification-item__content">
+              <p class="notification-item__title">New document uploaded</p>
+              <p class="notification-item__description">
+                Jordan Avery added Witness_Statement.docx to #CS-2041
+              </p>
+            </div>
+            <span class="notification-item__time">15m ago</span>
+          </li>
+
+        </ul>
+      </div>
+
+    </section>
+
+    <script src="../../js/components/shell.js"></script>
+    <script src="../../js/pages/notificaciones.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="LegalCol – Client Dashboard" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Dashboard – LegalCol</title>
+    <link rel="stylesheet" href="../../css/main.css" />
+    <!-- Auth guard: must load before page content is shown -->
+    <script src="../../js/auth/users.js"></script>
+    <script src="../../js/auth/auth.js"></script>
+    <script src="../../js/auth/guard.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Page content – shell (navbar + sidebar) is injected by shell.js -->
+    <section class="view" id="view-dashboard" aria-labelledby="dashboard-title">
+
+      <div class="page-header">
+        <h1 class="page-header__title" id="dashboard-title">Welcome back</h1>
+        <p class="page-header__subtitle">You have 2 active cases and 3 pending actions.</p>
+      </div>
+
+      <!-- Stat cards -->
+      <div class="stat-grid" aria-label="Summary statistics">
+
+        <article class="stat-card" aria-label="Active cases: 2">
+          <div class="stat-card__header">
+            <span class="stat-card__icon" aria-hidden="true"></span>
+            <span class="stat-card__label">Active Cases</span>
+          </div>
+          <p class="stat-card__value">2</p>
+          <p class="stat-card__description">Both on track</p>
+        </article>
+
+        <article class="stat-card" aria-label="Pending actions: 2">
+          <div class="stat-card__header">
+            <span class="stat-card__icon" aria-hidden="true"></span>
+            <span class="stat-card__label">Pending Actions</span>
+          </div>
+          <p class="stat-card__value">2</p>
+          <p class="stat-card__description">2 documents · 1 form</p>
+        </article>
+
+        <article class="stat-card" aria-label="Next appointment: June 24">
+          <div class="stat-card__header">
+            <span class="stat-card__icon" aria-hidden="true"></span>
+            <span class="stat-card__label">Next Appointment</span>
+          </div>
+          <p class="stat-card__value">Jun 24</p>
+          <p class="stat-card__description">Hearing · 10:00 AM</p>
+        </article>
+
+        <article class="stat-card" aria-label="Outstanding balance: $1,240">
+          <div class="stat-card__header">
+            <span class="stat-card__icon" aria-hidden="true"></span>
+            <span class="stat-card__label">Outstanding</span>
+          </div>
+          <p class="stat-card__value">$1,240</p>
+          <p class="stat-card__description">1 invoice due</p>
+        </article>
+
+      </div>
+
+      <!-- Two-column grid -->
+      <div class="dashboard-grid">
+
+        <!-- Active Cases -->
+        <div class="card dashboard-card" aria-labelledby="active-cases-title">
+          <div class="dashboard-card__header">
+            <h2 class="dashboard-card__title" id="active-cases-title">Active Cases</h2>
+            <a class="link" href="expedientes.html" aria-label="View all cases">View all</a>
+          </div>
+          <ul class="case-list" aria-label="Active cases">
+            <li class="case-row">
+              <div class="case-row__main">
+                <p class="case-row__name">10:00 AM · Courtroom 4B</p>
+                <p class="case-row__meta">#CS-2041 · A. Whitfield</p>
+              </div>
+              <div class="case-row__aside">
+                <span class="case-row__detail">Hearing · Jun 24</span>
+                <span class="badge badge--progress">En Proceso</span>
+              </div>
+            </li>
+            <li class="case-row">
+              <div class="case-row__main">
+                <p class="case-row__name">Employment Contract Review</p>
+                <p class="case-row__meta">#CS-1987 · R. Okonkwo</p>
+              </div>
+              <div class="case-row__aside">
+                <span class="case-row__detail">Docs due · Jun 18</span>
+                <span class="badge badge--review">Revisión</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Pending Actions -->
+        <div class="card dashboard-card" aria-labelledby="pending-actions-title">
+          <div class="dashboard-card__header">
+            <h2 class="dashboard-card__title" id="pending-actions-title">Pending Actions</h2>
+            <p class="dashboard-card__subtitle">// Needs your attention</p>
+          </div>
+          <ul class="action-list" aria-label="Pending actions">
+            <li class="action-item">
+              <input class="action-item__checkbox" type="checkbox" id="action-1" />
+              <label class="action-item__label" for="action-1">
+                Sign the retainer agreement for #CS-2041
+              </label>
+            </li>
+            <li class="action-item">
+              <input class="action-item__checkbox" type="checkbox" id="action-2" />
+              <label class="action-item__label" for="action-2">
+                Upload proof of address for verification
+              </label>
+            </li>
+            <li class="action-item">
+              <input class="action-item__checkbox" type="checkbox" id="action-3" />
+              <label class="action-item__label" for="action-3">
+                Confirm attendance for Jun 24 hearing
+              </label>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Recently Uploaded Documents -->
+        <div class="card dashboard-card" aria-labelledby="recent-docs-title">
+          <div class="dashboard-card__header">
+            <h2 class="dashboard-card__title" id="recent-docs-title">Recently Uploaded Documents</h2>
+          </div>
+          <ul class="document-list" aria-label="Recently uploaded documents">
+            <li class="document-row">
+              <span class="document-row__icon" aria-hidden="true"></span>
+              <div class="document-row__info">
+                <p class="document-row__name">Lease_Agreement_v3.pdf</p>
+                <p class="document-row__meta">PDF · 2.1 MB · #CS-2041</p>
+              </div>
+              <span class="document-row__date">Jun 9</span>
+            </li>
+            <li class="document-row">
+              <span class="document-row__icon" aria-hidden="true"></span>
+              <div class="document-row__info">
+                <p class="document-row__name">Lease_Agreement_v3.pdf</p>
+                <p class="document-row__meta">PDF · 2.1 MB · #CS-2041</p>
+              </div>
+              <span class="document-row__date">Jun 9</span>
+            </li>
+            <li class="document-row">
+              <span class="document-row__icon" aria-hidden="true"></span>
+              <div class="document-row__info">
+                <p class="document-row__name">Lease_Agreement_v3.pdf</p>
+                <p class="document-row__meta">PDF · 2.1 MB · #CS-2041</p>
+              </div>
+              <span class="document-row__date">Jun 9</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Upcoming Appointments -->
+        <div class="card dashboard-card" aria-labelledby="upcoming-appts-title">
+          <div class="dashboard-card__header">
+            <h2 class="dashboard-card__title" id="upcoming-appts-title">Upcoming Appointments</h2>
+          </div>
+          <ul class="appointment-list" aria-label="Upcoming appointments">
+            <li class="appointment-item">
+              <div class="appointment-item__date" aria-label="June 24">
+                <span class="appointment-item__day">24</span>
+                <span class="appointment-item__month">JUN</span>
+              </div>
+              <div class="appointment-item__info">
+                <p class="appointment-item__title">Court Hearing — Property Dispute</p>
+                <p class="appointment-item__meta">10:00 AM · Courtroom 4B</p>
+              </div>
+            </li>
+            <li class="appointment-item">
+              <div class="appointment-item__date" aria-label="June 24">
+                <span class="appointment-item__day">24</span>
+                <span class="appointment-item__month">JUN</span>
+              </div>
+              <div class="appointment-item__info">
+                <p class="appointment-item__title">Court Hearing — Property Dispute</p>
+                <p class="appointment-item__meta">10:00 AM · Courtroom 4B</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+      </div><!-- /.dashboard-grid -->
+
+    </section>
+
+    <!-- Shell + page scripts -->
+    <script src="../../js/components/shell.js"></script>
+    <script src="../../js/pages/dashboard.js"></script>
+
+  </body>
+</html>

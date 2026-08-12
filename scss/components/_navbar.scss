@@ -1,0 +1,107 @@
+// =============================================================================
+// COMPONENT: Navbar
+// =============================================================================
+
+@use '../abstracts' as *;
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: $navbar-height;
+  background-color: $color-bg-navbar;
+  border-bottom: $border-width solid $color-border-light;
+  padding: 0 $space-6;
+
+  display: flex;
+  align-items: center;
+  gap: $space-4;
+
+  // --- Search ---
+  &__search {
+    flex: 1;
+    max-width: 340px;
+    margin: 0 $space-4;
+  }
+
+  // --- Actions group (notifications + user) ---
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: $space-3;
+    margin-left: auto;
+  }
+
+  // --- Notifications button ---
+  &__notifications {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: $border-radius-sm;
+    border: $border-width solid $color-border-light;
+    background-color: transparent;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background-color: $color-nav-item-hover-bg;
+    }
+
+    &:focus-visible {
+      @include focus-visible-ring;
+    }
+  }
+
+  &__notifications-icon {
+    display: block;
+    width: 16px;
+    height: 16px;
+    background-color: $color-text-secondary;
+    border-radius: 2px;
+  }
+
+  // --- User button ---
+  &__user {
+    display: flex;
+    align-items: center;
+    gap: $space-2;
+    padding: $space-1 $space-2;
+    border-radius: $border-radius-sm;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background-color: $color-nav-item-hover-bg;
+    }
+
+    &:focus-visible {
+      @include focus-visible-ring;
+    }
+  }
+
+  &__user-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  &__user-name {
+    font-size: $font-size-sm;
+    font-weight: $font-weight-semibold;
+    color: $color-text-primary;
+    line-height: 1.2;
+  }
+
+  &__user-role {
+    font-size: $font-size-xs;
+    font-weight: $font-weight-medium;
+    color: $color-text-secondary;
+    text-transform: uppercase;
+    letter-spacing: $letter-spacing-wide;
+    line-height: 1.2;
+  }
+}

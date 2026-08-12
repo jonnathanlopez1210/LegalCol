@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="LegalCol – Case Detail" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Case Detail – LegalCol</title>
+    <link rel="stylesheet" href="../../css/main.css" />
+    <script src="../../js/auth/users.js"></script>
+    <script src="../../js/auth/auth.js"></script>
+    <script src="../../js/auth/guard.js"></script>
+  </head>
+
+  <body>
+
+    <section class="view" id="view-case-detail" aria-labelledby="case-detail-title">
+
+      <nav class="breadcrumb" aria-label="Back navigation">
+        <a class="breadcrumb__link link" href="expedientes.html" data-nav="my-cases">
+          <span aria-hidden="true">←</span> Back to My Cases
+        </a>
+      </nav>
+
+      <div class="case-detail-header">
+        <div class="case-detail-header__main">
+          <h1 class="case-detail-header__title" id="case-detail-title">
+            Property Dispute — Maple St.
+          </h1>
+          <span class="badge badge--progress">In Progress</span>
+        </div>
+        <p class="case-detail-header__meta">#CS-2041 · Real Estate · Opened Apr 2, 2026</p>
+        <div class="case-detail-header__actions">
+          <button class="btn btn--secondary btn--sm" type="button">
+            <span class="btn__text">Message lawyer</span>
+          </button>
+          <button class="btn btn--primary btn--sm" type="button">
+            <span class="btn__text">Upload document</span>
+          </button>
+        </div>
+      </div>
+
+      <nav class="tab-nav" aria-label="Case sections" role="tablist">
+        <button class="tab-nav__tab tab-nav__tab--active" role="tab"
+          aria-selected="true" aria-controls="tab-overview" id="tab-btn-overview">
+          Overview
+        </button>
+        <button class="tab-nav__tab" role="tab"
+          aria-selected="false" aria-controls="tab-documents" id="tab-btn-documents">
+          Documents
+        </button>
+        <button class="tab-nav__tab" role="tab"
+          aria-selected="false" aria-controls="tab-timeline" id="tab-btn-timeline">
+          Timeline
+        </button>
+        <button class="tab-nav__tab" role="tab"
+          aria-selected="false" aria-controls="tab-invoices" id="tab-btn-invoices">
+          Invoices
+        </button>
+      </nav>
+
+      <div class="case-detail-grid">
+
+        <div class="case-detail-main">
+
+          <!-- Tab: Overview -->
+          <div class="tab-panel" id="tab-overview" role="tabpanel" aria-labelledby="tab-btn-overview">
+
+            <div class="card case-section" aria-labelledby="case-progress-title">
+              <h2 class="case-section__title" id="case-progress-title">Case Progress</h2>
+              <ol class="stepper" aria-label="Case progress stages">
+                <li class="stepper__step stepper__step--completed" aria-label="Filed – completed">
+                  <span class="stepper__dot" aria-hidden="true"></span>
+                  <span class="stepper__label">Filed</span>
+                </li>
+                <li class="stepper__step stepper__step--completed" aria-label="Discovery – completed">
+                  <span class="stepper__dot" aria-hidden="true"></span>
+                  <span class="stepper__label">Discovery</span>
+                </li>
+                <li class="stepper__step stepper__step--active" aria-label="Hearing – current" aria-current="step">
+                  <span class="stepper__dot" aria-hidden="true"></span>
+                  <span class="stepper__label">Hearing</span>
+                </li>
+                <li class="stepper__step" aria-label="Resolved – pending">
+                  <span class="stepper__dot" aria-hidden="true"></span>
+                  <span class="stepper__label">Resolved</span>
+                </li>
+              </ol>
+            </div>
+
+            <div class="card case-section" aria-labelledby="case-overview-title">
+              <h2 class="case-section__title" id="case-overview-title">Case Overview</h2>
+              <p class="case-section__subtitle">// Summary &amp; Description</p>
+              <div class="case-section__body case-section__body--placeholder" aria-label="Case summary">
+                <span class="placeholder-line"></span>
+                <span class="placeholder-line"></span>
+                <span class="placeholder-line placeholder-line--short"></span>
+              </div>
+            </div>
+
+            <div class="card case-section" aria-labelledby="case-docs-title">
+              <h2 class="case-section__title" id="case-docs-title">Case Documents</h2>
+              <ul class="document-list" aria-label="Case documents">
+                <li class="document-row document-row--with-action">
+                  <span class="document-row__icon" aria-hidden="true"></span>
+                  <div class="document-row__info">
+                    <p class="document-row__name">Lease_Agreement_v3.pdf</p>
+                    <p class="document-row__meta">PDF · 2.1 MB · #CS-2041</p>
+                  </div>
+                  <button class="btn btn--secondary btn--xs" type="button">
+                    <span class="btn__text">Download</span>
+                  </button>
+                </li>
+                <li class="document-row document-row--with-action">
+                  <span class="document-row__icon" aria-hidden="true"></span>
+                  <div class="document-row__info">
+                    <p class="document-row__name">Lease_Agreement_v3.pdf</p>
+                    <p class="document-row__meta">PDF · 2.1 MB · #CS-2041</p>
+                  </div>
+                  <button class="btn btn--secondary btn--xs" type="button">
+                    <span class="btn__text">Download</span>
+                  </button>
+                </li>
+                <li class="document-row document-row--with-action">
+                  <span class="document-row__icon" aria-hidden="true"></span>
+                  <div class="document-row__info">
+                    <p class="document-row__name">Lease_Agreement_v3.pdf</p>
+                    <p class="document-row__meta">PDF · 2.1 MB · #CS-2041</p>
+                  </div>
+                  <button class="btn btn--secondary btn--xs" type="button">
+                    <span class="btn__text">Download</span>
+                  </button>
+                </li>
+              </ul>
+            </div>
+
+          </div><!-- /#tab-overview -->
+
+          <div class="tab-panel" id="tab-documents" role="tabpanel" aria-labelledby="tab-btn-documents" hidden>
+            <p class="visually-hidden">Documents tab content</p>
+          </div>
+          <div class="tab-panel" id="tab-timeline" role="tabpanel" aria-labelledby="tab-btn-timeline" hidden>
+            <p class="visually-hidden">Timeline tab content</p>
+          </div>
+          <div class="tab-panel" id="tab-invoices" role="tabpanel" aria-labelledby="tab-btn-invoices" hidden>
+            <p class="visually-hidden">Invoices tab content</p>
+          </div>
+
+        </div><!-- /.case-detail-main -->
+
+        <aside class="case-detail-aside" aria-label="Case sidebar information">
+
+          <div class="card case-aside-card" aria-labelledby="assigned-lawyer-title">
+            <h2 class="case-aside-card__title" id="assigned-lawyer-title">Assigned Lawyer</h2>
+            <div class="lawyer-card">
+              <span class="avatar avatar--md" aria-hidden="true"></span>
+              <div class="lawyer-card__info">
+                <p class="lawyer-card__name">A. Whitfield</p>
+                <p class="lawyer-card__role">Senior Lawyer · Real Estate</p>
+              </div>
+            </div>
+            <button class="btn btn--secondary" type="button">
+              <span class="btn__text">Send a message</span>
+            </button>
+          </div>
+
+          <div class="card case-aside-card" aria-labelledby="key-deadlines-title">
+            <h2 class="case-aside-card__title" id="key-deadlines-title">Key Deadlines</h2>
+            <p class="case-aside-card__subtitle">// Important dates</p>
+            <ul class="appointment-list" aria-label="Key deadlines">
+              <li class="appointment-item">
+                <div class="appointment-item__date" aria-label="June 24">
+                  <span class="appointment-item__day">24</span>
+                  <span class="appointment-item__month">JUN</span>
+                </div>
+                <div class="appointment-item__info">
+                  <p class="appointment-item__title">Court Hearing</p>
+                  <p class="appointment-item__meta">10:00 AM · Courtroom 4B</p>
+                </div>
+              </li>
+              <li class="appointment-item">
+                <div class="appointment-item__date" aria-label="June 18">
+                  <span class="appointment-item__day">18</span>
+                  <span class="appointment-item__month">JUN</span>
+                </div>
+                <div class="appointment-item__info">
+                  <p class="appointment-item__title">Submit signed retainer</p>
+                  <p class="appointment-item__meta appointment-item__meta--alert">Action required</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+        </aside>
+
+      </div><!-- /.case-detail-grid -->
+
+    </section>
+
+    <script src="../../js/components/shell.js"></script>
+    <script src="../../js/pages/detalle-expediente.js"></script>
+
+  </body>
+</html>

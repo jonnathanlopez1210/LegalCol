@@ -1,0 +1,43 @@
+// =============================================================================
+// MAIN – Punto de entrada SCSS
+// Orden de importación: Abstracts → Base → Layout → Components
+// =============================================================================
+
+// --- Abstracts (sin output CSS propio) ---
+@use 'abstracts/variables' as *;
+@use 'abstracts/mixins' as *;
+
+// --- Base ---
+@use 'base/reset';
+@use 'base/typography';
+
+// --- Layout ---
+@use 'layout/auth';
+@use 'layout/dashboard';
+
+// --- Components: shared (Sign In + Dashboard) ---
+@use 'components/logo';
+@use 'components/card';
+@use 'components/form';
+@use 'components/button';
+@use 'components/link';
+@use 'components/avatar';
+
+// --- Components: navbar & sidebar ---
+@use 'components/navbar';
+@use 'components/sidebar';
+@use 'components/role-switcher';
+@use 'components/search-input';
+
+// --- Components: dashboard views ---
+@use 'components/page-header';
+@use 'components/stat-card';
+@use 'components/dashboard-card';
+@use 'components/badge';
+@use 'components/progress-bar';
+@use 'components/data-table';
+@use 'components/case-detail';
+@use 'components/dropzone';
+@use 'components/dropdown';
+@use 'components/profile';
+@use 'components/notifications';

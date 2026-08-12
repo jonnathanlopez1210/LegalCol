@@ -1,0 +1,33 @@
+// =============================================================================
+// COMPONENT: Avatar
+// =============================================================================
+
+@use '../abstracts' as *;
+
+.avatar {
+  display: inline-block;
+  border-radius: 50%;
+  background-color: $color-border-light;
+  flex-shrink: 0;
+
+  // --- Sizes ---
+  &--xs {
+    width: $avatar-size-xs;
+    height: $avatar-size-xs;
+  }
+
+  &--sm {
+    width: $avatar-size-sm;
+    height: $avatar-size-sm;
+  }
+
+  &--md {
+    width: $avatar-size-md;
+    height: $avatar-size-md;
+  }
+
+  &--lg {
+    width: $avatar-size-lg;
+    height: $avatar-size-lg;
+  }
+}

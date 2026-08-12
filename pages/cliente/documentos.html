@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="LegalCol – Documents" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Documents – LegalCol</title>
+    <link rel="stylesheet" href="../../css/main.css" />
+    <script src="../../js/auth/users.js"></script>
+    <script src="../../js/auth/auth.js"></script>
+    <script src="../../js/auth/guard.js"></script>
+  </head>
+
+  <body>
+
+    <section class="view" id="view-documents" aria-labelledby="documents-title">
+
+      <div class="page-header">
+        <h1 class="page-header__title" id="documents-title">Documents</h1>
+        <p class="page-header__subtitle">Upload, download and track versions across your cases.</p>
+      </div>
+
+      <div class="dropzone" role="region" aria-label="File upload area"
+        aria-describedby="dropzone-instructions">
+        <span class="dropzone__icon" aria-hidden="true"></span>
+        <p class="dropzone__text" id="dropzone-instructions">
+          Drag files here, or
+          <label class="link dropzone__browse-label" for="file-upload">browse</label>
+          <input
+            class="visually-hidden"
+            type="file"
+            id="file-upload"
+            name="file-upload"
+            accept=".pdf,.docx,.png"
+            multiple
+            aria-label="Upload files – PDF, DOCX, PNG, up to 25 MB"
+          />
+        </p>
+        <p class="dropzone__hint">PDF, DOCX, PNG · up to 25 MB</p>
+      </div>
+
+      <div class="documents-toolbar">
+        <div class="dropdown" aria-label="Filter by case">
+          <button class="dropdown__trigger" type="button"
+            aria-haspopup="listbox" aria-expanded="false" id="filter-case-btn">
+            <span class="dropdown__label">Filter by case</span>
+            <span class="dropdown__arrow" aria-hidden="true">▾</span>
+          </button>
+          <ul class="dropdown__menu" role="listbox" aria-labelledby="filter-case-btn" hidden>
+            <li class="dropdown__item" role="option" aria-selected="false">#CS-2041</li>
+            <li class="dropdown__item" role="option" aria-selected="false">#CS-2042</li>
+          </ul>
+        </div>
+        <div class="search-input">
+          <label class="visually-hidden" for="documents-search">Search documents</label>
+          <span class="search-input__icon" aria-hidden="true"></span>
+          <input
+            class="search-input__field"
+            type="search"
+            id="documents-search"
+            name="documents-search"
+            placeholder="Search documents"
+            autocomplete="off"
+          />
+        </div>
+      </div>
+
+      <div class="card table-card">
+        <table class="data-table" aria-label="Documents list">
+          <caption class="visually-hidden">All uploaded documents with version, size and upload date</caption>
+          <thead class="data-table__head">
+            <tr class="data-table__row data-table__row--header">
+              <th class="data-table__th" scope="col">Name</th>
+              <th class="data-table__th" scope="col">Case</th>
+              <th class="data-table__th" scope="col">Version</th>
+              <th class="data-table__th" scope="col">Size</th>
+              <th class="data-table__th" scope="col">Uploaded</th>
+              <th class="data-table__th" scope="col">
+                <span class="visually-hidden">Actions</span>
+              </th>
+            </tr>
+          </thead>
+          <tbody class="data-table__body">
+            <tr class="data-table__row">
+              <td class="data-table__td data-table__td--name">
+                <span class="document-row__icon" aria-hidden="true"></span>
+                Lease_Agreement_v3.pdf
+              </td>
+              <td class="data-table__td">PDF · 2.1 MB · #CS-2041</td>
+              <td class="data-table__td">
+                <div class="dropdown dropdown--inline">
+                  <button class="dropdown__trigger dropdown__trigger--sm" type="button"
+                    aria-haspopup="listbox" aria-expanded="false">
+                    v3 <span aria-hidden="true">▾</span>
+                  </button>
+                </div>
+              </td>
+              <td class="data-table__td">1.4 MB</td>
+              <td class="data-table__td">Jun 9</td>
+              <td class="data-table__td data-table__td--action">
+                <a class="link" href="#" aria-label="Download Lease_Agreement_v3.pdf">Download</a>
+              </td>
+            </tr>
+            <tr class="data-table__row">
+              <td class="data-table__td data-table__td--name">
+                <span class="document-row__icon" aria-hidden="true"></span>
+                Lease_Agreement_v3.pdf
+              </td>
+              <td class="data-table__td">PDF · 2.1 MB · #CS-2041</td>
+              <td class="data-table__td">
+                <div class="dropdown dropdown--inline">
+                  <button class="dropdown__trigger dropdown__trigger--sm" type="button"
+                    aria-haspopup="listbox" aria-expanded="false">
+                    v3 <span aria-hidden="true">▾</span>
+                  </button>
+                </div>
+              </td>
+              <td class="data-table__td">1.4 MB</td>
+              <td class="data-table__td">Jun 9</td>
+              <td class="data-table__td data-table__td--action">
+                <a class="link" href="#" aria-label="Download Lease_Agreement_v3.pdf">Download</a>
+              </td>
+            </tr>
+            <tr class="data-table__row">
+              <td class="data-table__td data-table__td--name">
+                <span class="document-row__icon" aria-hidden="true"></span>
+                Lease_Agreement_v3.pdf
+              </td>
+              <td class="data-table__td">PDF · 2.1 MB · #CS-2041</td>
+              <td class="data-table__td">
+                <div class="dropdown dropdown--inline">
+                  <button class="dropdown__trigger dropdown__trigger--sm" type="button"
+                    aria-haspopup="listbox" aria-expanded="false">
+                    v3 <span aria-hidden="true">▾</span>
+                  </button>
+                </div>
+              </td>
+              <td class="data-table__td">1.4 MB</td>
+              <td class="data-table__td">Jun 9</td>
+              <td class="data-table__td data-table__td--action">
+                <a class="link" href="#" aria-label="Download Lease_Agreement_v3.pdf">Download</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </section>
+
+    <script src="../../js/components/shell.js"></script>
+    <script src="../../js/pages/documentos.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,93 @@
+// =============================================================================
+// COMPONENT: Notifications
+// =============================================================================
+
+@use '../abstracts' as *;
+
+.notification-group {
+  @include flex-column;
+  gap: $space-3;
+
+  &__label {
+    font-size: $font-size-xs;
+    font-weight: $font-weight-semibold;
+    color: $color-text-secondary;
+    text-transform: uppercase;
+    letter-spacing: $letter-spacing-wide;
+  }
+}
+
+.notification-list {
+  @include card-base;
+  list-style: none;
+  overflow: hidden;
+}
+
+.notification-item {
+  display: flex;
+  align-items: flex-start;
+  gap: $space-3;
+  padding: $space-4 $space-5;
+  border-bottom: $border-width solid $color-border-table;
+  transition: background-color 0.15s ease;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  &:hover {
+    background-color: $color-nav-item-hover-bg;
+  }
+
+  // --- Unread state ---
+  &--unread {
+    background-color: $color-bg-card;
+
+    .notification-item__title {
+      font-weight: $font-weight-semibold;
+    }
+  }
+
+  // --- Dot (read/unread indicator) ---
+  &__dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: $color-dot-unread;
+    flex-shrink: 0;
+    margin-top: 6px;
+
+    &--read {
+      background-color: $color-dot-read;
+    }
+  }
+
+  // --- Content ---
+  &__content {
+    @include flex-column;
+    gap: $space-1;
+    flex: 1;
+    min-width: 0;
+  }
+
+  &__title {
+    font-size: $font-size-sm;
+    color: $color-text-primary;
+  }
+
+  &__description {
+    font-size: $font-size-sm;
+    color: $color-text-secondary;
+    @include truncate;
+  }
+
+  // --- Time ---
+  &__time {
+    font-size: $font-size-xs;
+    color: $color-text-secondary;
+    flex-shrink: 0;
+    white-space: nowrap;
+    margin-top: 2px;
+  }
+}

@@ -1,0 +1,49 @@
+// =============================================================================
+// COMPONENT: Search Input
+// =============================================================================
+
+@use '../abstracts' as *;
+
+.search-input {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  &__icon {
+    position: absolute;
+    left: $space-3;
+    display: block;
+    width: 14px;
+    height: 14px;
+    background-color: $color-text-secondary;
+    border-radius: 50%;
+    pointer-events: none;
+    flex-shrink: 0;
+  }
+
+  &__field {
+    width: 100%;
+    height: $input-height;
+    padding: 0 $space-3 0 calc(#{$space-3} + 14px + #{$space-2});
+    font-size: $font-size-md;
+    color: $color-text-primary;
+    background-color: $color-bg-card;
+    border: $border-width solid $color-border-input;
+    border-radius: $border-radius-sm;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+    &::placeholder {
+      color: $color-text-secondary;
+    }
+
+    &:focus {
+      outline: none;
+      border-color: $color-text-primary;
+      box-shadow: 0 0 0 2px rgba(26, 26, 26, 0.1);
+    }
+
+    &:focus-visible {
+      @include focus-visible-ring;
+    }
+  }
+}

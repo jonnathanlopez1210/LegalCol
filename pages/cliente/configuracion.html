@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="LegalCol – Change Password" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Change Password – LegalCol</title>
+    <link rel="stylesheet" href="../../css/main.css" />
+    <script src="../../js/auth/users.js"></script>
+    <script src="../../js/auth/auth.js"></script>
+    <script src="../../js/auth/guard.js"></script>
+  </head>
+
+  <body>
+
+    <section class="view" id="view-change-password" aria-labelledby="change-password-title">
+
+      <nav class="breadcrumb" aria-label="Back navigation">
+        <a class="breadcrumb__link link" href="perfil.html" data-nav="profile">
+          <span aria-hidden="true">←</span> Back to My Profile
+        </a>
+      </nav>
+
+      <div class="page-header">
+        <h1 class="page-header__title" id="change-password-title">Change Password</h1>
+        <p class="page-header__subtitle">Personal information, contact details and security.</p>
+      </div>
+
+      <div class="card change-password-card">
+        <form class="form" novalidate aria-label="Change password form">
+
+          <div class="form__group">
+            <label class="form__label" for="current-password">Current Password</label>
+            <input
+              class="form__input"
+              type="password"
+              id="current-password"
+              name="current-password"
+              autocomplete="current-password"
+              required
+              aria-required="true"
+              aria-describedby="current-password-error"
+            />
+            <span class="form__error" id="current-password-error" role="alert" aria-live="polite"></span>
+          </div>
+
+          <div class="form__group">
+            <label class="form__label" for="new-password">New Password</label>
+            <input
+              class="form__input"
+              type="password"
+              id="new-password"
+              name="new-password"
+              autocomplete="new-password"
+              required
+              aria-required="true"
+              aria-describedby="new-password-error"
+            />
+            <span class="form__error" id="new-password-error" role="alert" aria-live="polite"></span>
+          </div>
+
+          <div class="form__group">
+            <label class="form__label" for="confirm-password">Confirm Password</label>
+            <input
+              class="form__input"
+              type="password"
+              id="confirm-password"
+              name="confirm-password"
+              autocomplete="new-password"
+              required
+              aria-required="true"
+              aria-describedby="confirm-password-error"
+            />
+            <span class="form__error" id="confirm-password-error" role="alert" aria-live="polite"></span>
+          </div>
+
+          <button class="btn btn--secondary btn--sm" type="submit">
+            <span class="btn__text">Change</span>
+          </button>
+
+        </form>
+      </div>
+
+    </section>
+
+    <script src="../../js/components/shell.js"></script>
+    <script src="../../js/pages/configuracion.js"></script>
+
+  </body>
+</html>

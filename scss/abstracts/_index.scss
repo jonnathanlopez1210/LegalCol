@@ -1,0 +1,9 @@
+// =============================================================================
+// ABSTRACTS INDEX
+// Archivo de reexportación para que los parciales puedan hacer:
+//   @use '../abstracts' as *;
+// y acceder a todas las variables y mixins.
+// =============================================================================
+
+@forward 'variables';
+@forward 'mixins';

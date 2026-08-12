@@ -1,0 +1,40 @@
+// =============================================================================
+// COMPONENT: Badge / Status Pill
+// =============================================================================
+
+@use '../abstracts' as *;
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  height: 24px;
+  padding: 0 $space-2;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-semibold;
+  border-radius: $border-radius-sm;
+  white-space: nowrap;
+
+  // --- In Progress / En Proceso ---
+  &--progress {
+    background-color: $color-badge-progress-bg;
+    color: $color-badge-progress-text;
+  }
+
+  // --- Pending ---
+  &--pending {
+    background-color: $color-badge-pending-bg;
+    color: $color-badge-pending-text;
+  }
+
+  // --- Completed ---
+  &--completed {
+    background-color: $color-badge-completed-bg;
+    color: $color-badge-completed-text;
+  }
+
+  // --- Revisión / Review ---
+  &--review {
+    background-color: $color-badge-review-bg;
+    color: $color-badge-review-text;
+  }
+}

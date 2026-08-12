@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="LegalCol – Profile" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Profile – LegalCol</title>
+    <link rel="stylesheet" href="../../css/main.css" />
+    <script src="../../js/auth/users.js"></script>
+    <script src="../../js/auth/auth.js"></script>
+    <script src="../../js/auth/guard.js"></script>
+  </head>
+
+  <body>
+
+    <section class="view" id="view-profile" aria-labelledby="profile-title">
+
+      <div class="page-header">
+        <h1 class="page-header__title" id="profile-title">Profile</h1>
+        <p class="page-header__subtitle">Personal information, contact details and security.</p>
+      </div>
+
+      <!-- Avatar card -->
+      <div class="card profile-avatar-card">
+        <div class="profile-avatar-card__user">
+          <span class="avatar avatar--lg" aria-label="Profile photo"></span>
+          <div class="profile-avatar-card__info">
+            <p class="profile-avatar-card__name">–</p>
+            <p class="profile-avatar-card__role">Client</p>
+          </div>
+        </div>
+        <button class="btn btn--secondary btn--sm" type="button">
+          <span class="btn__text">Change photo</span>
+        </button>
+      </div>
+
+      <!-- Personal Information -->
+      <div class="card profile-info-card" aria-labelledby="personal-info-title">
+        <h2 class="profile-info-card__title" id="personal-info-title">Personal Information</h2>
+        <form class="form profile-form" novalidate aria-label="Personal information form">
+          <div class="profile-form__grid">
+            <div class="form__group">
+              <label class="form__label" for="profile-name">Full Name</label>
+              <input class="form__input" type="text" id="profile-name"
+                name="full-name" autocomplete="name" />
+            </div>
+            <div class="form__group">
+              <label class="form__label" for="profile-email">Email</label>
+              <input class="form__input" type="email" id="profile-email"
+                name="email" autocomplete="email" />
+            </div>
+            <div class="form__group">
+              <label class="form__label" for="profile-phone">Phone</label>
+              <input class="form__input" type="tel" id="profile-phone"
+                name="phone" value="+1 (555) 012-3456" autocomplete="tel" />
+            </div>
+            <div class="form__group">
+              <label class="form__label" for="profile-timezone">Timezone</label>
+              <div class="dropdown dropdown--input">
+                <button class="dropdown__trigger dropdown__trigger--input" type="button"
+                  id="profile-timezone" aria-haspopup="listbox" aria-expanded="false">
+                  <span class="dropdown__label">Eastern (ET)</span>
+                  <span class="dropdown__arrow" aria-hidden="true">▾</span>
+                </button>
+                <ul class="dropdown__menu" role="listbox" hidden>
+                  <li class="dropdown__item" role="option" aria-selected="true">Eastern (ET)</li>
+                  <li class="dropdown__item" role="option" aria-selected="false">Central (CT)</li>
+                  <li class="dropdown__item" role="option" aria-selected="false">Pacific (PT)</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <!-- Security -->
+      <div class="card security-card" aria-labelledby="security-title">
+        <div class="security-card__header">
+          <h2 class="security-card__title" id="security-title">Security</h2>
+          <p class="security-card__subtitle">// Account protection</p>
+        </div>
+        <div class="security-card__row">
+          <div class="security-card__info">
+            <p class="security-card__field-name">Password</p>
+            <p class="security-card__field-meta">Last changed 3 months ago</p>
+          </div>
+          <button class="btn btn--secondary btn--sm" type="button" data-nav="change-password">
+            <span class="btn__text">Change</span>
+          </button>
+        </div>
+      </div>
+
+    </section>
+
+    <script src="../../js/components/shell.js"></script>
+    <script src="../../js/pages/perfil.js"></script>
+
+  </body>
+</html>

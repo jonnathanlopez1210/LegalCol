@@ -1,0 +1,12 @@
+{
+  "name": "legalcol",
+  "version": "1.0.0",
+  "description": "LegalCol – Case Management Platform",
+  "scripts": {
+    "sass": "sass scss/main.scss css/main.css --style=compressed --no-source-map",
+    "sass:watch": "sass scss/main.scss css/main.css --watch --style=expanded --no-source-map"
+  },
+  "devDependencies": {
+    "sass": "^1.99.0"
+  }
+}

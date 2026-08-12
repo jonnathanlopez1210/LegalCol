@@ -1,0 +1,60 @@
+// =============================================================================
+// COMPONENT: Stat Card
+// =============================================================================
+
+@use '../abstracts' as *;
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: $space-4;
+
+  @include from($bp-desktop) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.stat-card {
+  @include card-base;
+  padding: $space-5 $space-5;
+  @include flex-column;
+  gap: $space-2;
+
+  // --- Header: icon + label ---
+  &__header {
+    display: flex;
+    align-items: center;
+    gap: $space-2;
+  }
+
+  &__icon {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-color: $color-text-secondary;
+    border-radius: 3px;
+    flex-shrink: 0;
+  }
+
+  &__label {
+    font-size: $font-size-xs;
+    font-weight: $font-weight-semibold;
+    color: $color-text-secondary;
+    text-transform: uppercase;
+    letter-spacing: $letter-spacing-wide;
+  }
+
+  // --- Value: big number ---
+  &__value {
+    font-size: $font-size-2xl;
+    font-weight: $font-weight-semibold;
+    color: $color-text-primary;
+    line-height: 1;
+  }
+
+  // --- Description ---
+  &__description {
+    font-size: $font-size-sm;
+    color: $color-text-secondary;
+  }
+}

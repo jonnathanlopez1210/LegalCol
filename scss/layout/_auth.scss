@@ -1,0 +1,37 @@
+// =============================================================================
+// LAYOUT: Auth – pantalla de login (Mobile First)
+// =============================================================================
+
+@use '../abstracts' as *;
+
+.auth {
+  min-height: 100vh;
+  background-color: $color-bg-page;
+  padding: $space-6 $space-4;
+
+  // Mobile: tarjeta centrada, ancho completo con padding lateral
+  @include flex-center;
+
+  // Los botones del form de login siempre ocupan el ancho completo
+  .btn {
+    width: 100%;
+  }
+
+  // --- Tablet (≥ 768px) ---
+  @include from($bp-tablet) {
+    padding: $space-10 $space-6;
+  }
+
+  // --- Desktop (≥ 1024px) ---
+  @include from($bp-desktop) {
+    padding: $space-10 $space-8;
+  }
+}
+
+.card {
+  max-width: 100%;
+
+  @include from($bp-tablet) {
+    max-width: $card-max-width;
+  }
+}

@@ -1,0 +1,50 @@
+@use '../abstracts' as *;
+// =============================================================================
+// COMPONENT: Dropzone
+// =============================================================================
+
+.dropzone {
+  @include card-base;
+  @include flex-column;
+  align-items: center;
+  justify-content: center;
+  gap: $space-3;
+  padding: $space-10 $space-6;
+  border: 2px dashed $color-border-input;
+  background-color: $color-bg-card;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+
+  &:hover,
+  &--active {
+    border-color: $color-text-primary;
+    background-color: $color-nav-item-hover-bg;
+  }
+
+  &__icon {
+    display: block;
+    width: 40px;
+    height: 48px;
+    background-color: $color-border-light;
+    border-radius: $border-radius-sm;
+    margin: 0 auto;
+  }
+
+  &__text {
+    font-size: $font-size-md;
+    color: $color-text-primary;
+    font-weight: $font-weight-medium;
+  }
+
+  &__browse-label {
+    cursor: pointer;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  &__hint {
+    font-size: $font-size-xs;
+    color: $color-text-secondary;
+  }
+}

@@ -1,0 +1,83 @@
+// =============================================================================
+// COMPONENT: Button
+// =============================================================================
+
+@use 'sass:color';
+@use '../abstracts' as *;
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: $btn-height;
+  padding: 0 $space-4;
+  font-size: $font-size-md;
+  font-weight: $font-weight-medium;
+  border-radius: $border-radius-sm;
+  transition: opacity 0.2s ease, background-color 0.2s ease;
+  cursor: pointer;
+  white-space: nowrap;
+
+  &:focus-visible {
+    @include focus-visible-ring;
+  }
+
+  // --- Icon ---
+  &__icon {
+    font-size: $font-size-md;
+    flex-shrink: 0;
+  }
+
+  // --- Text ---
+  &__text {
+    flex: 1;
+    text-align: left;
+  }
+
+  // --- Modifier: Primary (fondo negro, texto blanco) ---
+  &--primary {
+    background-color: $color-bg-btn-primary;
+    color: $color-text-on-dark;
+    border: $border-width solid $color-bg-btn-primary;
+
+    &:hover {
+      opacity: 0.88;
+    }
+
+    &:active {
+      opacity: 0.75;
+    }
+  }
+
+  // --- Modifier: Secondary (fondo blanco, borde gris) ---
+  &--secondary {
+    background-color: $color-bg-card;
+    color: $color-text-primary;
+    border: $border-width solid $color-border-btn;
+
+    &:hover {
+      background-color: color.scale($color-bg-card, $lightness: -3%);
+    }
+
+    &:active {
+      background-color: color.scale($color-bg-card, $lightness: -6%);
+    }
+  }
+
+  // --- Modifier: Small ---
+  &--sm {
+    width: auto;
+    height: $btn-height-sm;
+    padding: 0 $space-3;
+    font-size: $font-size-sm;
+  }
+
+  // --- Modifier: Extra Small ---
+  &--xs {
+    width: auto;
+    height: $btn-height-xs;
+    padding: 0 $space-2;
+    font-size: $font-size-sm;
+  }
+}

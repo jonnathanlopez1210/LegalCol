@@ -1,0 +1,276 @@
+// =============================================================================
+// COMPONENT: Case Detail
+// =============================================================================
+
+@use '../abstracts' as *;
+
+// --- Header ---
+.case-detail-header {
+  @include flex-column;
+  gap: $space-3;
+
+  &__main {
+    display: flex;
+    align-items: center;
+    gap: $space-3;
+    flex-wrap: wrap;
+  }
+
+  &__title {
+    font-size: 1.5rem;
+    font-weight: $font-weight-semibold;
+    color: $color-text-primary;
+  }
+
+  &__meta {
+    font-size: $font-size-sm;
+    color: $color-text-secondary;
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: $space-3;
+    margin-top: $space-1;
+  }
+}
+
+// --- Two-column grid ---
+.case-detail-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $space-4;
+
+  @include from($bp-desktop) {
+    grid-template-columns: 1fr 280px;
+    align-items: start;
+  }
+}
+
+.case-detail-main {
+  @include flex-column;
+  gap: $space-4;
+}
+
+.case-detail-aside {
+  @include flex-column;
+  gap: $space-4;
+}
+
+// --- Section cards inside case detail ---
+.case-section {
+  padding: $space-5;
+  gap: $space-4;
+
+  &__title {
+    font-size: $font-size-md;
+    font-weight: $font-weight-semibold;
+    color: $color-text-primary;
+  }
+
+  &__subtitle {
+    font-size: $font-size-xs;
+    color: $color-text-demo-label;
+    letter-spacing: $letter-spacing-wide;
+    margin-top: -$space-2;
+  }
+
+  &__body {
+    font-size: $font-size-sm;
+    color: $color-text-primary;
+    line-height: $line-height-base;
+
+    &--placeholder {
+      @include flex-column;
+      gap: $space-2;
+    }
+  }
+}
+
+// --- Placeholder lines (Case Overview skeleton) ---
+.placeholder-line {
+  display: block;
+  height: 10px;
+  background-color: $color-border-light;
+  border-radius: 999px;
+  width: 100%;
+
+  &--short {
+    width: 60%;
+  }
+}
+
+// --- Aside cards ---
+.case-aside-card {
+  padding: $space-5;
+  gap: $space-4;
+
+  &__title {
+    font-size: $font-size-md;
+    font-weight: $font-weight-semibold;
+    color: $color-text-primary;
+  }
+
+  &__subtitle {
+    font-size: $font-size-xs;
+    color: $color-text-demo-label;
+    letter-spacing: $letter-spacing-wide;
+    margin-top: -$space-2;
+  }
+}
+
+// --- Lawyer card ---
+.lawyer-card {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+
+  &__info {
+    @include flex-column;
+    gap: 2px;
+  }
+
+  &__name {
+    font-size: $font-size-md;
+    font-weight: $font-weight-semibold;
+    color: $color-text-primary;
+  }
+
+  &__role {
+    font-size: $font-size-xs;
+    color: $color-text-secondary;
+  }
+}
+
+// =============================================================================
+// COMPONENT: Tab Navigation
+// =============================================================================
+
+.tab-nav {
+  display: flex;
+  gap: 0;
+  border-bottom: $border-width solid $color-border-light;
+
+  &__tab {
+    padding: $space-3 $space-4;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+    color: $color-text-secondary;
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -$border-width;
+    cursor: pointer;
+    transition: color 0.2s ease, border-color 0.2s ease;
+
+    &:hover {
+      color: $color-text-primary;
+    }
+
+    &:focus-visible {
+      @include focus-visible-ring;
+    }
+
+    &--active {
+      color: $color-text-primary;
+      border-bottom-color: $color-text-primary;
+      font-weight: $font-weight-semibold;
+    }
+  }
+}
+
+.tab-panel {
+  // Panel visible por defecto cuando no tiene [hidden]
+}
+
+// =============================================================================
+// COMPONENT: Stepper
+// =============================================================================
+
+.stepper {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  list-style: none;
+  position: relative;
+
+  // Connecting line between dots
+  &::before {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: calc(8px + 10%);
+    right: calc(8px + 10%);
+    height: 2px;
+    background-color: $color-stepper-line;
+    z-index: 0;
+  }
+
+  &__step {
+    @include flex-column;
+    align-items: center;
+    gap: $space-2;
+    flex: 1;
+    position: relative;
+    z-index: 1;
+  }
+
+  &__dot {
+    display: block;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-color: $color-stepper-pending;
+    border: 2px solid $color-stepper-pending;
+    transition: background-color 0.2s ease;
+
+    .stepper__step--completed & {
+      background-color: $color-stepper-done;
+      border-color: $color-stepper-done;
+    }
+
+    .stepper__step--active & {
+      background-color: $color-bg-card;
+      border-color: $color-stepper-active;
+      border-width: 3px;
+    }
+  }
+
+  &__label {
+    font-size: $font-size-xs;
+    font-weight: $font-weight-medium;
+    color: $color-text-secondary;
+    text-align: center;
+
+    .stepper__step--completed &,
+    .stepper__step--active & {
+      color: $color-text-primary;
+      font-weight: $font-weight-semibold;
+    }
+  }
+}
+
+// =============================================================================
+// COMPONENT: Breadcrumb
+// =============================================================================
+
+.breadcrumb {
+  &__link {
+    display: inline-flex;
+    align-items: center;
+    gap: $space-1;
+    font-size: $font-size-sm;
+    color: $color-text-secondary;
+    text-decoration: none;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: $color-text-primary;
+    }
+
+    &:focus-visible {
+      @include focus-visible-ring;
+      border-radius: 2px;
+    }
+  }
+}

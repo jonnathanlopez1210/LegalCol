@@ -1,0 +1,88 @@
+// =============================================================================
+// COMPONENT: Form
+// =============================================================================
+@use '../abstracts' as *;
+
+.form {
+  @include flex-column;
+  gap: $space-4;
+
+  // --- Group: contenedor de cada campo ---
+  &__group {
+    @include flex-column;
+    gap: $space-1;
+  }
+
+  // --- Group header: fila label + link (ej. Password + Forgot?) ---
+  &__group-header {
+    @include flex-between;
+  }
+
+  // --- Label ---
+  &__label {
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+    color: $color-text-primary;
+  }
+
+  // --- Input ---
+  &__input {
+    width: 100%;
+    height: $input-height;
+    padding: 0 $space-3;
+    font-size: $font-size-md;
+    color: $color-text-primary;
+    background-color: $color-bg-card;
+    border: $border-width solid $color-border-input;
+    border-radius: $border-radius-sm;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+    &::placeholder {
+      color: $color-text-secondary;
+      // font-size hereda del input — no se redeclara
+    }
+
+    &:focus {
+      outline: none;
+      border-color: $color-text-primary;
+      box-shadow: 0 0 0 2px rgba(26, 26, 26, 0.1);
+    }
+
+    &:focus-visible {
+      @include focus-visible-ring;
+    }
+
+    // Estado de error — añadido por JavaScript al fallar la validación
+    &--error {
+      border-color: $color-error;
+      box-shadow: 0 0 0 2px rgba(204, 0, 0, 0.1);
+
+      &:focus {
+        border-color: $color-error;
+        box-shadow: 0 0 0 2px rgba(204, 0, 0, 0.15);
+      }
+    }
+  }
+
+  // --- Error message ---
+  &__error {
+    font-size: $font-size-sm;
+    color: $color-error;
+    min-height: 1em; // reserva espacio para evitar reflow
+  }
+
+  // --- Demo section ---
+  &__demo {
+    @include flex-column;
+    gap: $space-3;
+    margin-top: $space-2;
+  }
+
+  &__demo-label {
+    font-size: $font-size-xs;
+    font-weight: $font-weight-medium;
+    color: $color-text-demo-label;
+    text-transform: uppercase;
+    letter-spacing: $letter-spacing-wide;
+  }
+}

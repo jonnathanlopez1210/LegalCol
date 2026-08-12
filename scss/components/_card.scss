@@ -1,0 +1,40 @@
+// =============================================================================
+// COMPONENT: Card
+// =============================================================================
+
+@use '../abstracts' as *;
+
+.card {
+  width: 100%;
+  background-color: $color-bg-card;
+  border-radius: $border-radius-lg;
+  box-shadow: $shadow-card;
+  padding: $space-8 $space-6;
+
+  @include flex-column;
+  gap: $space-6;
+
+  // --- Header ---
+  &__header {
+    @include flex-column;
+    gap: $space-2;
+  }
+
+  &__subtitle {
+    font-size: $font-size-xs;
+    font-weight: $font-weight-medium;
+    color: $color-text-secondary;
+    text-transform: uppercase;
+    letter-spacing: $letter-spacing-wide;
+  }
+
+  // --- Footer ---
+  &__footer {
+    text-align: center;
+  }
+
+  &__footer-text {
+    font-size: $font-size-sm;
+    color: $color-text-secondary;
+  }
+}

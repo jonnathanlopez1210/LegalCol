@@ -1,0 +1,10 @@
+// =============================================================================
+// TYPOGRAPHY – utilidades globales de texto
+// =============================================================================
+
+@use '../abstracts' as *;
+
+// Clase utilitaria de accesibilidad (usada en el HTML con .visually-hidden)
+.visually-hidden {
+  @include visually-hidden;
+}

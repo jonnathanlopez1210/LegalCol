@@ -1,0 +1,46 @@
+// =============================================================================
+// COMPONENT: Role Switcher
+// =============================================================================
+
+@use '../abstracts' as *;
+
+.role-switcher {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  border: $border-width solid $color-border-light;
+  border-radius: $border-radius-sm;
+  overflow: hidden;
+
+  &__btn {
+    height: 32px;
+    padding: 0 $space-3;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+    color: $color-text-secondary;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+
+    &:focus-visible {
+      @include focus-visible-ring;
+    }
+
+    &:hover {
+      background-color: $color-nav-item-hover-bg;
+      color: $color-text-primary;
+    }
+
+    // --- Active role ---
+    &--active {
+      background-color: $color-bg-btn-primary;
+      color: $color-text-on-dark;
+
+      &:hover {
+        background-color: $color-bg-btn-primary;
+        opacity: 0.9;
+      }
+    }
+  }
+}

@@ -1,0 +1,132 @@
+// =============================================================================
+// VARIABLES
+// =============================================================================
+
+// -----------------------------------------------------------------------------
+// Colors
+// -----------------------------------------------------------------------------
+$color-bg-page:         #e8e8e8;   // fondo gris claro general
+$color-bg-card:         #ffffff;   // fondo tarjeta blanca
+$color-bg-btn-primary:  #1a1a1a;   // fondo botón primario (negro)
+
+$color-text-primary:    #1a1a1a;   // texto principal
+$color-text-secondary:  #9a9a9a;   // texto secundario / subtítulo / placeholder
+$color-text-demo-label: #b0b0b0;   // etiqueta demo "// DEMO · ENTER AS A ROLE"
+$color-text-on-dark:    #ffffff;   // texto sobre fondo oscuro
+
+$color-border-input:    #d4d4d4;   // borde inputs
+$color-border-btn:      #d4d4d4;   // borde botones secundarios
+
+$color-link:            #1a1a1a;   // color links
+
+$color-error:           #cc0000;   // mensajes de error (accesibilidad)
+
+// -----------------------------------------------------------------------------
+// Typography
+// -----------------------------------------------------------------------------
+$font-family-base:   'Inter', 'DM Sans', system-ui, -apple-system, sans-serif;
+
+$font-size-base:     16px;
+
+$font-size-xs:       0.625rem;   //  10px – subtítulo / demo label
+$font-size-sm:       0.75rem;    //  12px – label, link forgot, footer
+$font-size-md:       0.875rem;   //  14px – inputs, botones
+$font-size-lg:       1rem;       //  16px – logo name
+
+$font-weight-regular: 400;
+$font-weight-medium:  500;
+$font-weight-semibold: 600;
+
+$line-height-base:   1.5;
+
+$letter-spacing-wide: 0.08em;   // subtítulo en mayúsculas
+
+// -----------------------------------------------------------------------------
+// Spacing
+// -----------------------------------------------------------------------------
+$space-1:  4px;
+$space-2:  8px;
+$space-3:  12px;
+$space-4:  16px;
+$space-6:  24px;
+$space-8:  32px;
+$space-10: 40px;
+
+// -----------------------------------------------------------------------------
+// Border
+// -----------------------------------------------------------------------------
+$border-radius-sm:   6px;
+$border-radius-lg:   16px;
+
+$border-width:       1px;
+
+// -----------------------------------------------------------------------------
+// Shadows
+// -----------------------------------------------------------------------------
+$shadow-card: 0 4px 24px rgba(0, 0, 0, 0.07);
+
+// -----------------------------------------------------------------------------
+// Breakpoints
+// -----------------------------------------------------------------------------
+$bp-tablet:   768px;
+$bp-desktop: 1024px;
+
+// -----------------------------------------------------------------------------
+// Sizes
+// -----------------------------------------------------------------------------
+$card-max-width:      480px;
+$logo-icon-size:      32px;
+$btn-height:          48px;
+$btn-height-sm:       36px;
+$btn-height-xs:       30px;
+$input-height:        44px;
+
+// Dashboard layout
+$sidebar-width:       160px;
+$navbar-height:       56px;
+$avatar-size-xs:      24px;
+$avatar-size-sm:      32px;
+$avatar-size-md:      40px;
+$avatar-size-lg:      56px;
+
+// -----------------------------------------------------------------------------
+// Colors – dashboard additions
+// -----------------------------------------------------------------------------
+$color-bg-sidebar:        #ffffff;
+$color-bg-navbar:         #ffffff;
+$color-bg-app:            #f0f0f0;
+
+$color-nav-item-active-bg:   #1a1a1a;
+$color-nav-item-active-text: #ffffff;
+$color-nav-item-hover-bg:    #f5f5f5;
+
+$color-border-light:      #ebebeb;
+$color-border-table:      #f0f0f0;
+
+// Badge colors
+$color-badge-progress-bg:   #e8e8e8;
+$color-badge-progress-text: #1a1a1a;
+$color-badge-pending-bg:    #f0f0f0;
+$color-badge-pending-text:  #6b6b6b;
+$color-badge-completed-bg:  #e8f5e9;
+$color-badge-completed-text:#2e7d32;
+$color-badge-review-bg:     #fff3e0;
+$color-badge-review-text:   #e65100;
+
+// Stepper
+$color-stepper-done:     #1a1a1a;
+$color-stepper-active:   #1a1a1a;
+$color-stepper-pending:  #d4d4d4;
+$color-stepper-line:     #d4d4d4;
+
+// Notification dot
+$color-dot-unread:  #1a1a1a;
+$color-dot-read:    #d4d4d4;
+
+// Typography additions
+$font-size-xl:  1.5rem;    // 24px – stat card value large
+$font-size-2xl: 2rem;      // 32px – stat card value extra large
+
+// Spacing additions
+$space-5:  20px;
+$space-7:  28px;

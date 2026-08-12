@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="LegalCol – Case Management Platform. Sign in to your account." />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="theme-color" content="#e8e8e8" />
+    <link rel="canonical" href="index.html" />
+    <title>Sign In – LegalCol</title>
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+
+  <body>
+
+    <main class="auth">
+
+      <div class="card">
+
+        <header class="card__header">
+          <div class="logo" aria-label="LegalCol">
+            <span class="logo__icon" aria-hidden="true"></span>
+            <span class="logo__name">LegalCol</span>
+          </div>
+          <p class="card__subtitle">
+            <span aria-hidden="true">Case Management Platform · Sign In</span>
+            <span class="visually-hidden">Case Management Platform – Sign In</span>
+          </p>
+        </header>
+
+        <form class="form" action="#" method="post" novalidate aria-label="Sign in form">
+
+          <div class="form__group">
+            <label class="form__label" for="email">Email</label>
+            <input
+              class="form__input"
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Your work email"
+              autocomplete="email"
+              required
+              aria-required="true"
+              aria-describedby="email-error"
+            />
+            <span class="form__error" id="email-error" role="alert" aria-live="polite"></span>
+          </div>
+
+          <div class="form__group">
+            <div class="form__group-header">
+              <label class="form__label" for="password">Password</label>
+              <a class="link" href="#" aria-label="Forgot your password?">Forgot?</a>
+            </div>
+            <input
+              class="form__input"
+              type="password"
+              id="password"
+              name="password"
+              autocomplete="current-password"
+              required
+              aria-required="true"
+              aria-describedby="password-error"
+            />
+            <span class="form__error" id="password-error" role="alert" aria-live="polite"></span>
+          </div>
+
+          <div class="form__demo">
+            <p class="form__demo-label" aria-hidden="true">// Demo · Enter as a role</p>
+            <button class="btn btn--primary" type="submit" name="role" value="client"
+              aria-label="Sign in as Client" aria-pressed="true">
+              <span class="btn__text">Sign in as Client</span>
+              <span class="btn__icon" aria-hidden="true">→</span>
+            </button>
+            <button class="btn btn--secondary" type="submit" name="role" value="lawyer"
+              aria-label="Sign in as Lawyer" aria-pressed="false">
+              <span class="btn__text">Sign in as Lawyer</span>
+              <span class="btn__icon" aria-hidden="true">→</span>
+            </button>
+            <button class="btn btn--secondary" type="submit" name="role" value="administrator"
+              aria-label="Sign in as Administrator" aria-pressed="false">
+              <span class="btn__text">Sign in as Administrator</span>
+              <span class="btn__icon" aria-hidden="true">→</span>
+            </button>
+          </div>
+
+        </form>
+
+        <footer class="card__footer">
+          <p class="card__footer-text">
+            No account?
+            <a class="link" href="#" aria-label="Create a new account">Register</a>
+          </p>
+        </footer>
+
+      </div>
+
+    </main>
+
+    <!-- Auth scripts — order matters: users → auth → login page logic -->
+    <script src="js/auth/users.js"></script>
+    <script src="js/auth/auth.js"></script>
+    <script src="js/main.js"></script>
+
+  </body>
+</html>

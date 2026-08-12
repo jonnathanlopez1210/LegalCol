@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="LegalCol – My Cases" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>My Cases – LegalCol</title>
+    <link rel="stylesheet" href="../../css/main.css" />
+    <script src="../../js/auth/users.js"></script>
+    <script src="../../js/auth/auth.js"></script>
+    <script src="../../js/auth/guard.js"></script>
+  </head>
+
+  <body>
+
+    <section class="view" id="view-my-cases" aria-labelledby="my-cases-title">
+
+      <div class="page-header">
+        <h1 class="page-header__title" id="my-cases-title">My Cases</h1>
+        <p class="page-header__subtitle">All cases you are a party to, with status and deadlines.</p>
+      </div>
+
+      <div class="filter-bar">
+        <div class="filter-tabs" role="group" aria-label="Filter cases by status">
+          <button class="filter-tab filter-tab--active" aria-pressed="true">All</button>
+          <button class="filter-tab" aria-pressed="false">Active</button>
+          <button class="filter-tab" aria-pressed="false">Closed</button>
+        </div>
+        <div class="search-input">
+          <label class="visually-hidden" for="cases-search">Search cases</label>
+          <span class="search-input__icon" aria-hidden="true"></span>
+          <input
+            class="search-input__field"
+            type="search"
+            id="cases-search"
+            name="cases-search"
+            placeholder="Search cases"
+            autocomplete="off"
+          />
+        </div>
+      </div>
+
+      <div class="card table-card">
+        <table class="data-table" aria-label="My cases">
+          <caption class="visually-hidden">List of all cases with status and deadlines</caption>
+          <thead class="data-table__head">
+            <tr class="data-table__row data-table__row--header">
+              <th class="data-table__th" scope="col">Case</th>
+              <th class="data-table__th" scope="col">Type</th>
+              <th class="data-table__th" scope="col">Assigned Lawyer</th>
+              <th class="data-table__th" scope="col">Status</th>
+              <th class="data-table__th" scope="col">Progress</th>
+              <th class="data-table__th" scope="col">Deadline</th>
+            </tr>
+          </thead>
+          <tbody class="data-table__body">
+            <tr class="data-table__row" data-nav="case-detail">
+              <td class="data-table__td data-table__td--case">
+                <p class="data-table__case-name">Property Dispute — Maple St.</p>
+                <p class="data-table__case-id">#CS-2041</p>
+              </td>
+              <td class="data-table__td">Real Estate</td>
+              <td class="data-table__td data-table__td--lawyer">
+                <span class="avatar avatar--xs" aria-hidden="true"></span>
+                A. Whitfield
+              </td>
+              <td class="data-table__td">
+                <span class="badge badge--progress">In Progress</span>
+              </td>
+              <td class="data-table__td">
+                <div class="progress-bar" role="progressbar"
+                  aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"
+                  aria-label="Case progress: 65%">
+                  <div class="progress-bar__fill" style="width: 65%"></div>
+                </div>
+                <span class="progress-bar__label">65%</span>
+              </td>
+              <td class="data-table__td">Jun 24, 2026</td>
+            </tr>
+            <tr class="data-table__row" data-nav="case-detail">
+              <td class="data-table__td data-table__td--case">
+                <p class="data-table__case-name">Contract Review — Elm Ave.</p>
+                <p class="data-table__case-id">#CS-2042</p>
+              </td>
+              <td class="data-table__td">Corporate Law</td>
+              <td class="data-table__td data-table__td--lawyer">
+                <span class="avatar avatar--xs" aria-hidden="true"></span>
+                J. Ramirez
+              </td>
+              <td class="data-table__td">
+                <span class="badge badge--pending">Pending</span>
+              </td>
+              <td class="data-table__td">
+                <div class="progress-bar" role="progressbar"
+                  aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"
+                  aria-label="Case progress: 40%">
+                  <div class="progress-bar__fill" style="width: 40%"></div>
+                </div>
+                <span class="progress-bar__label">40%</span>
+              </td>
+              <td class="data-table__td">Jul 10, 2026</td>
+            </tr>
+            <tr class="data-table__row" data-nav="case-detail">
+              <td class="data-table__td data-table__td--case">
+                <p class="data-table__case-name">Patent Filing — Tech Innovations</p>
+                <p class="data-table__case-id">#CS-2043</p>
+              </td>
+              <td class="data-table__td">Intellectual Property</td>
+              <td class="data-table__td data-table__td--lawyer">
+                <span class="avatar avatar--xs" aria-hidden="true"></span>
+                M. Chen
+              </td>
+              <td class="data-table__td">
+                <span class="badge badge--progress">In Progress</span>
+              </td>
+              <td class="data-table__td">
+                <div class="progress-bar" role="progressbar"
+                  aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"
+                  aria-label="Case progress: 80%">
+                  <div class="progress-bar__fill" style="width: 80%"></div>
+                </div>
+                <span class="progress-bar__label">80%</span>
+              </td>
+              <td class="data-table__td">Aug 15, 2026</td>
+            </tr>
+            <tr class="data-table__row" data-nav="case-detail">
+              <td class="data-table__td data-table__td--case">
+                <p class="data-table__case-name">Divorce Settlement — Oak St.</p>
+                <p class="data-table__case-id">#CS-2044</p>
+              </td>
+              <td class="data-table__td">Family Law</td>
+              <td class="data-table__td data-table__td--lawyer">
+                <span class="avatar avatar--xs" aria-hidden="true"></span>
+                L. Thompson
+              </td>
+              <td class="data-table__td">
+                <span class="badge badge--completed">Completed</span>
+              </td>
+              <td class="data-table__td">
+                <div class="progress-bar" role="progressbar"
+                  aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"
+                  aria-label="Case progress: 100%">
+                  <div class="progress-bar__fill" style="width: 100%"></div>
+                </div>
+                <span class="progress-bar__label">100%</span>
+              </td>
+              <td class="data-table__td">May 30, 2026</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </section>
+
+    <script src="../../js/components/shell.js"></script>
+    <script src="../../js/pages/expedientes.js"></script>
+
+  </body>
+</html>
