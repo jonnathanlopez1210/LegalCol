@@ -45,7 +45,7 @@ function _initBreadcrumb() {
   if (link) {
     link.addEventListener('click', (e) => {
       e.preventDefault();
-      window.location.href = 'expedientes.html';
+      window.location.href = _getPagePath('expedientes.html');
     });
   }
 }

@@ -15,8 +15,11 @@
 // Redirección si ya está autenticado
 // =============================================================================
 
+// Calcular la ruta al dashboard del cliente
+const DASHBOARD_PATH = 'pages/cliente/dashboard.html';
+
 if (isAuthenticated()) {
-  window.location.replace('pages/cliente/dashboard.html');
+  window.location.replace(DASHBOARD_PATH);
 }
 
 // =============================================================================
@@ -144,8 +147,16 @@ const FormValidator = (() => {
    * @param {string} role
    */
   const _redirectAfterLogin = (role) => {
-    // Por ahora todos los roles van al dashboard del cliente
-    window.location.href = 'pages/cliente/dashboard.html';
+    // Mapeo de roles a dashboards
+    const roleDashboards = {
+      client:      'pages/cliente/dashboard.html',
+      lawyer:      'pages/abogado/dashboard.html',
+      administrator: 'pages/administrador/dashboard.html'
+    };
+
+    // Por defecto, redirigir al dashboard del cliente
+    const target = roleDashboards[role] || roleDashboards.client;
+    window.location.href = target;
   };
 
   return { init };

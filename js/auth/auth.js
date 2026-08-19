@@ -82,15 +82,23 @@ function isAuthenticated() {
 
 /**
  * Calcula la ruta relativa a la raíz del proyecto.
- * Necesario porque las páginas internas están en /pages/cliente/.
+ * Necesario porque las páginas internas están en /pages/rol/ (rol puede ser cliente, abogado, administrador).
  *
- * @returns {string}  e.g. '' desde index.html, '../../' desde pages/cliente/
+ * @returns {string}  e.g. '' desde index.html, '../../' desde pages/rol/
  */
 function _getRootPath() {
   const path = window.location.pathname;
+  
+  // Contar profundidad de carpetas
   const depth = (path.match(/\//g) || []).length - 1;
-
-  // En Windows con file:// puede haber un / extra, normalizamos
-  const levels = path.includes('/pages/') ? 2 : 0;
-  return levels > 0 ? '../'.repeat(levels) : '';
+  
+  // Determinar si estamos dentro de pages/rol/
+  const isInPages = path.includes('/pages/');
+  
+  if (!isInPages) {
+    return '';
+  }
+  
+  // Si estamos en pages/rol/, necesitamos subir 2 niveles para llegar a la raíz
+  return '../'.repeat(2);
 }

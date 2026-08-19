@@ -52,7 +52,7 @@ function _initPasswordForm() {
     if (valid) {
       // TODO: conectar con backend
       console.info('[LegalCol] Password change requested (dev mode – not persisted)');
-      window.location.href = 'perfil.html';
+      window.location.href = _getPagePath('perfil.html');
     }
   });
 }
@@ -81,7 +81,7 @@ function _initBreadcrumb() {
   if (link) {
     link.addEventListener('click', (e) => {
       e.preventDefault();
-      window.location.href = 'perfil.html';
+      window.location.href = _getPagePath('perfil.html');
     });
   }
 }
