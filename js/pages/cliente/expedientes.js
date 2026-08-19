@@ -37,13 +37,13 @@ function _initCaseRowNavigation() {
 
   rows.forEach((row) => {
     row.addEventListener('click', () => {
-      window.location.href = 'detalle-expediente.html';
+      window.location.href = _getPagePath('detalle-expediente.html');
     });
 
     // Accesibilidad: tecla Enter también navega
     row.setAttribute('tabindex', '0');
     row.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter') window.location.href = 'detalle-expediente.html';
+      if (e.key === 'Enter') window.location.href = _getPagePath('detalle-expediente.html');
     });
   });
 }

@@ -36,7 +36,7 @@ function _initChangePasswordLink() {
   if (!btn) return;
 
   btn.addEventListener('click', () => {
-    window.location.href = 'configuracion.html';
+    window.location.href = _getPagePath('configuracion.html');
   });
 }
 
