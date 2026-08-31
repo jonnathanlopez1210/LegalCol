@@ -3,10 +3,9 @@
  * Lógica de la pantalla de Sign In.
  *
  * Responsabilidades:
- *  1. Si ya hay sesión activa, redirigir al dashboard.
- *  2. Gestionar el selector visual de rol (demo buttons).
- *  3. Validar el formulario antes del submit.
- *  4. Llamar a auth.login() y redirigir al dashboard si es exitoso.
+ *  1. Si ya hay sesión activa, redirigir al dashboard correspondiente al rol.
+ *  2. Validar el formulario antes del submit.
+ *  3. Llamar a auth.login() y redirigir al dashboard según el rol del usuario autenticado.
  */
 
 'use strict';
@@ -15,43 +14,10 @@
 // Redirección si ya está autenticado
 // =============================================================================
 
-// Calcular la ruta al dashboard del cliente
-const DASHBOARD_PATH = 'pages/cliente/dashboard.html';
-
 if (isAuthenticated()) {
-  window.location.replace(DASHBOARD_PATH);
+  const session = getSession();
+  window.location.replace(_getDashboardForRole(session.role));
 }
-
-// =============================================================================
-// MÓDULO: Role Selector
-// =============================================================================
-
-const RoleSelector = (() => {
-
-  const ACTIVE_CLASS   = 'btn--primary';
-  const INACTIVE_CLASS = 'btn--secondary';
-
-  const init = () => {
-    const roleButtons = document.querySelectorAll('.form__demo .btn');
-    if (!roleButtons.length) return;
-
-    roleButtons.forEach((btn) => {
-      btn.addEventListener('click', () => _setActive(btn, roleButtons));
-    });
-  };
-
-  const _setActive = (activeBtn, allButtons) => {
-    allButtons.forEach((btn) => {
-      const isActive = btn === activeBtn;
-      btn.classList.toggle(ACTIVE_CLASS,   isActive);
-      btn.classList.toggle(INACTIVE_CLASS, !isActive);
-      btn.setAttribute('aria-pressed', String(isActive));
-    });
-  };
-
-  return { init };
-
-})();
 
 // =============================================================================
 // MÓDULO: FormValidator + Auth
@@ -92,7 +58,7 @@ const FormValidator = (() => {
 
     if (!emailValid || !passwordValid) return;
 
-    // Intentar autenticación
+    // Intentar autenticación — login() crea la sesión en sessionStorage
     const result = login(emailInput.value, passwordInput.value);
 
     if (!result.ok) {
@@ -101,26 +67,23 @@ const FormValidator = (() => {
       return;
     }
 
-    // Determinar destino según el rol del botón seleccionado
-    const submitter = e.submitter
-      || document.querySelector('.form__demo .btn--primary');
-    const role = submitter ? submitter.value : 'client';
-
-    _redirectAfterLogin(role);
+    // Leer el rol desde la sesión recién creada por login()
+    const session = getSession();
+    window.location.href = _getDashboardForRole(session.role);
   };
 
   const _validateEmail = (input) => {
     const value = input.value.trim();
-    if (!value)                      return _showError(input, MESSAGES.emailEmpty);
-    if (!EMAIL_REGEX.test(value))    return _showError(input, MESSAGES.emailInvalid);
+    if (!value)                   return _showError(input, MESSAGES.emailEmpty);
+    if (!EMAIL_REGEX.test(value)) return _showError(input, MESSAGES.emailInvalid);
     _clearError(input);
     return true;
   };
 
   const _validatePassword = (input) => {
     const value = input.value;
-    if (!value)              return _showError(input, MESSAGES.passwordEmpty);
-    if (value.length < 6)   return _showError(input, MESSAGES.passwordShort);
+    if (!value)            return _showError(input, MESSAGES.passwordEmpty);
+    if (value.length < 6)  return _showError(input, MESSAGES.passwordShort);
     _clearError(input);
     return true;
   };
@@ -140,34 +103,34 @@ const FormValidator = (() => {
     input.removeAttribute('aria-invalid');
   };
 
-  /**
-   * Redirige al dashboard del rol correspondiente.
-   * Cuando existan dashboards por rol, expandir este switch.
-   *
-   * @param {string} role
-   */
-  const _redirectAfterLogin = (role) => {
-    // Mapeo de roles a dashboards
-    const roleDashboards = {
-      client:      'pages/cliente/dashboard.html',
-      lawyer:      'pages/abogado/dashboard.html',
-      administrator: 'pages/administrador/dashboard.html'
-    };
-
-    // Por defecto, redirigir al dashboard del cliente
-    const target = roleDashboards[role] || roleDashboards.client;
-    window.location.href = target;
-  };
-
   return { init };
 
 })();
+
+// =============================================================================
+// UTILIDAD: Ruta del dashboard según el rol
+// =============================================================================
+
+/**
+ * Devuelve la ruta al dashboard correspondiente al rol del usuario.
+ * El rol proviene siempre de la sesión autenticada, nunca de un botón.
+ *
+ * @param {string} role  'client' | 'lawyer' | 'administrator'
+ * @returns {string}     Ruta relativa al dashboard del rol.
+ */
+function _getDashboardForRole(role) {
+  const dashboards = {
+    client:        'pages/cliente/dashboard.html',
+    lawyer:        'pages/abogado/dashboard.html',
+    administrator: 'pages/administrador/dashboard.html',
+  };
+  return dashboards[role] || dashboards.client;
+}
 
 // =============================================================================
 // INICIO
 // =============================================================================
 
 document.addEventListener('DOMContentLoaded', () => {
-  RoleSelector.init();
   FormValidator.init();
 });

@@ -71,18 +71,4 @@
     min-height: 1em; // reserva espacio para evitar reflow
   }
 
-  // --- Demo section ---
-  &__demo {
-    @include flex-column;
-    gap: $space-3;
-    margin-top: $space-2;
-  }
-
-  &__demo-label {
-    font-size: $font-size-xs;
-    font-weight: $font-weight-medium;
-    color: $color-text-demo-label;
-    text-transform: uppercase;
-    letter-spacing: $letter-spacing-wide;
-  }
 }
