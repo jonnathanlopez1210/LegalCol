@@ -30,8 +30,4 @@
 
 .card {
   max-width: 100%;
-
-  @include from($bp-tablet) {
-    max-width: $card-max-width;
-  }
 }
