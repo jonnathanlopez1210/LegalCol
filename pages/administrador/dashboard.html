@@ -1,29 +1,663 @@
 <!DOCTYPE html>
 <html lang="es">
+
   <head>
+
+    <!-- Configuración básica del documento -->
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="LegalCol – Administrador Dashboard" />
-    <meta name="robots" content="noindex, nofollow" />
+
+    <!-- Permite adaptar la interfaz a dispositivos móviles -->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+
+    <!-- Descripción de la página -->
+    <meta
+      name="description"
+      content="LegalCol – Administrador Dashboard"
+    />
+
+    <!-- El dashboard es una página privada -->
+    <meta
+      name="robots"
+      content="noindex, nofollow"
+    />
+
     <title>Dashboard – LegalCol</title>
-    <link rel="stylesheet" href="../../css/main.css" />
+
+
+    <!-- ============================================================
+         ESTILOS
+         ============================================================ -->
+
+    <!-- Hoja de estilos principal generada por Sass -->
+    <link
+      rel="stylesheet"
+      href="../../css/main.css"
+    />
+
+
+    <!-- ============================================================
+         AUTENTICACIÓN
+         Estos archivos deben cargarse antes del contenido protegido.
+         ============================================================ -->
+
+    <!-- Usuarios de desarrollo -->
     <script src="../../js/auth/users.js"></script>
+
+    <!-- Gestión de sesión -->
     <script src="../../js/auth/auth.js"></script>
+
+    <!-- Protección de la ruta -->
     <script src="../../js/auth/guard.js"></script>
+
   </head>
 
+
   <body>
-    <!-- Contenido de la página de Administrador -->
-    <section class="view" id="view-admin-dashboard" aria-labelledby="dashboard-title">
-      <div class="page-header">
-        <h1 class="page-header__title" id="dashboard-title">Dashboard del Administrador</h1>
-        <p class="page-header__subtitle">Bienvenido al portal de administrador.</p>
+
+
+    <!-- ============================================================
+         DASHBOARD DEL ADMINISTRADOR
+
+         Esta sección contiene únicamente el contenido específico
+         del administrador.
+
+         Navbar y Sidebar son agregados posteriormente por shell.js.
+         ============================================================ -->
+
+    <section
+      class="view"
+      id="view-admin-dashboard"
+      aria-labelledby="dashboard-title"
+    >
+
+
+      <!-- ==========================================================
+           ENCABEZADO DEL DASHBOARD
+           ========================================================== -->
+
+      <div class="page-header admin-page-header">
+
+        <!-- Información principal del dashboard -->
+        <div>
+
+          <!-- El nombre del administrador será actualizado
+               dinámicamente desde dashboard.js -->
+          <h1
+            class="page-header__title"
+            id="dashboard-title"
+          >
+            Good morning
+          </h1>
+
+          <!-- Resumen general de la actividad administrativa -->
+          <p class="page-header__subtitle">
+            14 active cases · 5 deadlines this week · 3 meetings today.
+          </p>
+
+        </div>
+
+
+        <!-- Botón para crear un nuevo expediente.
+             Inicialmente es solamente visual.
+             Posteriormente se conectará con la funcionalidad
+             de creación de expedientes. -->
+        <button
+          class="admin-new-case"
+          type="button"
+          id="new-case-btn"
+        >
+          + New case
+        </button>
+
       </div>
-      <p>Esta página aún está en desarrollo.</p>
+
+
+
+      <!-- ==========================================================
+           TARJETAS DE ESTADÍSTICAS
+
+           Se reutiliza el componente global .stat-card utilizado
+           también por los otros roles del sistema.
+           ========================================================== -->
+
+      <div
+        class="stat-grid admin-stat-grid"
+        aria-label="Administrative summary"
+      >
+
+
+        <!-- --------------------------------------------------------
+             CASOS ACTIVOS
+             -------------------------------------------------------- -->
+
+        <article
+          class="stat-card"
+          aria-label="Active cases: 2"
+        >
+
+          <div class="stat-card__header">
+
+            <!-- Icono de la estadística -->
+            <span
+              class="stat-card__icon"
+              aria-hidden="true"
+            ></span>
+
+            <span class="stat-card__label">
+              Active Cases
+            </span>
+
+          </div>
+
+          <!-- Valor de la estadística -->
+          <p class="stat-card__value">
+            2
+          </p>
+
+          <!-- Descripción -->
+          <p class="stat-card__description">
+            Both on track
+          </p>
+
+        </article>
+
+
+
+        <!-- --------------------------------------------------------
+             PRÓXIMOS VENCIMIENTOS
+             -------------------------------------------------------- -->
+
+        <article
+          class="stat-card"
+          aria-label="Upcoming deadlines: 2"
+        >
+
+          <div class="stat-card__header">
+
+            <span
+              class="stat-card__icon"
+              aria-hidden="true"
+            ></span>
+
+            <span class="stat-card__label">
+              Upcoming Deadlines
+            </span>
+
+          </div>
+
+          <p class="stat-card__value">
+            2
+          </p>
+
+          <p class="stat-card__description">
+            1 urgent
+          </p>
+
+        </article>
+
+
+
+        <!-- --------------------------------------------------------
+             REUNIONES DEL DÍA
+             -------------------------------------------------------- -->
+
+        <article
+          class="stat-card"
+          aria-label="Meetings today: 2"
+        >
+
+          <div class="stat-card__header">
+
+            <span
+              class="stat-card__icon"
+              aria-hidden="true"
+            ></span>
+
+            <span class="stat-card__label">
+              Meetings Today
+            </span>
+
+          </div>
+
+          <p class="stat-card__value">
+            2
+          </p>
+
+          <p class="stat-card__description">
+            Hearing · 10:00 AM
+          </p>
+
+        </article>
+
+
+
+        <!-- --------------------------------------------------------
+             FACTURACIÓN SEMANAL
+             -------------------------------------------------------- -->
+
+        <article
+          class="stat-card"
+          aria-label="Billable this week: 1240 dollars"
+        >
+
+          <div class="stat-card__header">
+
+            <span
+              class="stat-card__icon"
+              aria-hidden="true"
+            ></span>
+
+            <span class="stat-card__label">
+              Billable (Week)
+            </span>
+
+          </div>
+
+          <p class="stat-card__value">
+            $1,240
+          </p>
+
+          <p class="stat-card__description">
+            1 invoice due
+          </p>
+
+        </article>
+
+      </div>
+
+
+
+      <!-- ==========================================================
+           CONTENIDO PRINCIPAL
+
+           Se divide en:
+
+           1. Upcoming Deadlines
+           2. My Tasks
+           3. Recent Client Activity
+
+           La distribución de columnas será controlada mediante Sass.
+           ========================================================== -->
+
+      <div class="admin-dashboard-grid">
+
+
+        <!-- ========================================================
+             PRÓXIMOS VENCIMIENTOS
+             ======================================================== -->
+
+        <section
+          class="card dashboard-card admin-dashboard-card"
+          aria-labelledby="deadlines-title"
+        >
+
+          <!-- Encabezado de la tarjeta -->
+          <div class="dashboard-card__header">
+
+            <div>
+
+              <h2
+                class="dashboard-card__title"
+                id="deadlines-title"
+              >
+                Upcoming Deadlines
+              </h2>
+
+              <p class="dashboard-card__subtitle">
+                // NEXT 7 DAYS
+              </p>
+
+            </div>
+
+
+            <!-- Enlace para consultar todos los expedientes.
+                 El destino real se configurará cuando desarrollemos
+                 la sección de expedientes. -->
+            <a
+              class="link"
+              href="#"
+              aria-label="View all cases"
+            >
+              All cases
+            </a>
+
+          </div>
+
+
+          <!-- Lista de vencimientos -->
+          <ul
+            class="admin-deadline-list"
+            aria-label="Upcoming deadlines"
+          >
+
+
+            <!-- Vencimiento urgente -->
+            <li class="admin-deadline">
+
+              <div class="admin-deadline__date">
+
+                <strong>
+                  Jun 19
+                </strong>
+
+              </div>
+
+
+              <div class="admin-deadline__info">
+
+                <p>
+                  Contract Litigation — Filing deadline
+                </p>
+
+                <span>
+                  #CS-1995
+                </span>
+
+              </div>
+
+
+              <span
+                class="admin-deadline__badge admin-deadline__badge--urgent"
+              >
+                URGENT
+              </span>
+
+            </li>
+
+
+
+            <!-- Segundo vencimiento -->
+            <li class="admin-deadline">
+
+              <div class="admin-deadline__date">
+
+                <strong>
+                  Jun 19
+                </strong>
+
+              </div>
+
+
+              <div class="admin-deadline__info">
+
+                <p>
+                  Contract Litigation — Filing deadline
+                </p>
+
+                <span>
+                  #CS-1995
+                </span>
+
+              </div>
+
+
+              <span class="admin-deadline__badge">
+                SOON
+              </span>
+
+            </li>
+
+          </ul>
+
+        </section>
+
+
+
+        <!-- ========================================================
+             COLUMNA DERECHA
+             ======================================================== -->
+
+        <div class="admin-dashboard-column">
+
+
+          <!-- ======================================================
+               MIS TAREAS
+               ====================================================== -->
+
+          <section
+            class="card dashboard-card admin-dashboard-card"
+            aria-labelledby="tasks-title"
+          >
+
+            <div class="dashboard-card__header">
+
+              <div>
+
+                <h2
+                  class="dashboard-card__title"
+                  id="tasks-title"
+                >
+                  My Tasks
+                </h2>
+
+                <p class="dashboard-card__subtitle">
+                  // 5 OPEN
+                </p>
+
+              </div>
+
+            </div>
+
+
+            <!-- Lista de tareas -->
+            <ul
+              class="action-list"
+              aria-label="My tasks"
+            >
+
+
+              <!-- Tarea 1 -->
+              <li class="action-item">
+
+                <input
+                  class="action-item__checkbox"
+                  type="checkbox"
+                  id="admin-task-1"
+                />
+
+                <label
+                  class="action-item__label"
+                  for="admin-task-1"
+                >
+                  Sign the retainer agreement for #CS-2041
+                </label>
+
+              </li>
+
+
+              <!-- Tarea 2 -->
+              <li class="action-item">
+
+                <input
+                  class="action-item__checkbox"
+                  type="checkbox"
+                  id="admin-task-2"
+                />
+
+                <label
+                  class="action-item__label"
+                  for="admin-task-2"
+                >
+                  Upload proof of address for verification
+                </label>
+
+              </li>
+
+
+              <!-- Tarea 3 -->
+              <li class="action-item">
+
+                <input
+                  class="action-item__checkbox"
+                  type="checkbox"
+                  id="admin-task-3"
+                />
+
+                <label
+                  class="action-item__label"
+                  for="admin-task-3"
+                >
+                  Confirm attendance for Jun 24 hearing
+                </label>
+
+              </li>
+
+            </ul>
+
+          </section>
+
+
+
+          <!-- ======================================================
+               ACTIVIDAD RECIENTE DE CLIENTES
+               ====================================================== -->
+
+          <section
+            class="card dashboard-card admin-dashboard-card"
+            aria-labelledby="activity-title"
+          >
+
+            <div class="dashboard-card__header">
+
+              <h2
+                class="dashboard-card__title"
+                id="activity-title"
+              >
+                Recent Client Activity
+              </h2>
+
+            </div>
+
+
+            <!-- Lista de actividades -->
+            <ul
+              class="admin-activity-list"
+              aria-label="Recent client activity"
+            >
+
+
+              <!-- Actividad 1 -->
+              <li class="admin-activity-item">
+
+                <!-- Avatar visual -->
+                <span
+                  class="admin-activity-item__avatar"
+                  aria-hidden="true"
+                ></span>
+
+
+                <div class="admin-activity-item__content">
+
+                  <p>
+                    <strong>
+                      Jordan Avery
+                    </strong>
+                    uploaded Witness_Statement.docx
+                  </p>
+
+                  <span>
+                    15m ago
+                  </span>
+
+                </div>
+
+              </li>
+
+
+
+              <!-- Actividad 2 -->
+              <li class="admin-activity-item">
+
+                <span
+                  class="admin-activity-item__avatar"
+                  aria-hidden="true"
+                ></span>
+
+
+                <div class="admin-activity-item__content">
+
+                  <p>
+                    <strong>
+                      Liam Chen
+                    </strong>
+                    added Budget_Proposal.xlsx
+                  </p>
+
+                  <span>
+                    3h ago
+                  </span>
+
+                </div>
+
+              </li>
+
+
+
+              <!-- Actividad 3 -->
+              <li class="admin-activity-item">
+
+                <span
+                  class="admin-activity-item__avatar"
+                  aria-hidden="true"
+                ></span>
+
+
+                <div class="admin-activity-item__content">
+
+                  <p>
+                    <strong>
+                      Noah Kim
+                    </strong>
+                    shared Design_Mockup.sketch
+                  </p>
+
+                  <span>
+                    45m ago
+                  </span>
+
+                </div>
+
+              </li>
+
+            </ul>
+
+          </section>
+
+        </div>
+
+      </div>
+
     </section>
 
-    <!-- Shell + page scripts -->
+
+
+    <!-- ============================================================
+         SHELL GLOBAL
+
+         Este archivo genera elementos compartidos por los diferentes
+         roles, como Navbar y Sidebar.
+         ============================================================ -->
+
     <script src="../../js/components/shell.js"></script>
+
+
+    <!-- ============================================================
+         JAVASCRIPT DEL DASHBOARD DEL ADMINISTRADOR
+
+         Aquí estará la lógica específica de esta página:
+
+         - Saludo dinámico
+         - Estadísticas
+         - Tareas
+         - Actividad
+         - Futuras interacciones
+         ============================================================ -->
+
     <script src="../../js/pages/administrador/dashboard.js"></script>
+
   </body>
+
 </html>

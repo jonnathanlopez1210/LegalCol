@@ -1,3 +1,212 @@
 // =============================================================================
-// ADMINISTRADOR – Estilos específicos por rol
+// ADMINISTRADOR – Estilos específicos del rol
 // =============================================================================
+
+@use '../abstracts' as *;
+
+// -----------------------------------------------------------------------------
+// Page header
+// -----------------------------------------------------------------------------
+
+.admin-page-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: $space-4;
+}
+
+// -----------------------------------------------------------------------------
+// New case button
+// -----------------------------------------------------------------------------
+
+.admin-new-case {
+  height: $btn-height-xs;
+  padding: 0 $space-3;
+  border: none;
+  border-radius: $border-radius-sm;
+  background-color: $color-bg-btn-primary;
+  color: $color-text-on-dark;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  cursor: pointer;
+  white-space: nowrap;
+
+  &:hover {
+    opacity: 0.9;
+  }
+
+  &:focus-visible {
+    @include focus-visible-ring;
+  }
+}
+
+// -----------------------------------------------------------------------------
+// Statistics
+// -----------------------------------------------------------------------------
+
+.admin-stat-grid {
+  margin-bottom: $space-4;
+}
+
+// -----------------------------------------------------------------------------
+// Main dashboard grid
+// -----------------------------------------------------------------------------
+
+.admin-dashboard-grid {
+  display: grid;
+  grid-template-columns: 1.65fr 1fr;
+  gap: $space-4;
+}
+
+.admin-dashboard-column {
+  display: flex;
+  flex-direction: column;
+  gap: $space-4;
+}
+
+.admin-dashboard-card {
+  min-width: 0;
+}
+
+// -----------------------------------------------------------------------------
+// Upcoming deadlines
+// -----------------------------------------------------------------------------
+
+.admin-deadline-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.admin-deadline {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+  padding: $space-3 0;
+  border-top: $border-width solid $color-border-table;
+
+  &:first-child {
+    border-top: none;
+  }
+}
+
+.admin-deadline__date {
+  width: 38px;
+  flex-shrink: 0;
+
+  strong {
+    font-size: $font-size-sm;
+    font-weight: $font-weight-semibold;
+    color: $color-text-primary;
+  }
+}
+
+.admin-deadline__info {
+  flex: 1;
+  min-width: 0;
+
+  p {
+    margin: 0;
+    font-size: $font-size-sm;
+    color: $color-text-primary;
+    @include truncate;
+  }
+
+  span {
+    display: block;
+    margin-top: 2px;
+    font-size: $font-size-xs;
+    color: $color-text-secondary;
+  }
+}
+
+.admin-deadline__badge {
+  flex-shrink: 0;
+  padding: 3px 6px;
+  border-radius: $border-radius-sm;
+  background-color: $color-bg-app;
+  color: $color-text-primary;
+  font-size: 8px;
+  font-weight: $font-weight-semibold;
+  letter-spacing: 0.04em;
+
+  &--urgent {
+    background-color: $color-bg-btn-primary;
+    color: $color-text-on-dark;
+  }
+}
+
+// -----------------------------------------------------------------------------
+// Recent client activity
+// -----------------------------------------------------------------------------
+
+.admin-activity-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.admin-activity-item {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+  padding: $space-3 0;
+  border-top: $border-width solid $color-border-table;
+
+  &:first-child {
+    border-top: none;
+  }
+}
+
+.admin-activity-item__avatar {
+  width: $avatar-size-sm;
+  height: $avatar-size-sm;
+  border-radius: 50%;
+  background-color: $color-border-input;
+  flex-shrink: 0;
+}
+
+.admin-activity-item__content {
+  flex: 1; // CORREGIDO: Garantiza que ocupe el espacio disponible
+  min-width: 0;
+
+  p {
+    margin: 0;
+    font-size: $font-size-xs;
+    color: $color-text-secondary;
+    @include truncate;
+  }
+
+  strong {
+    color: $color-text-primary;
+    font-weight: $font-weight-semibold;
+  }
+
+  span {
+    display: block;
+    margin-top: 2px;
+    font-size: 8px;
+    color: $color-text-secondary;
+  }
+}
+
+// -----------------------------------------------------------------------------
+// Responsive
+// -----------------------------------------------------------------------------
+
+// CORREGIDO: Uso de calc() para operaciones seguras con unidades en Media Queries
+@media (max-width: calc(#{$bp-desktop} - 1px)) {
+  .admin-dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: calc(#{$bp-tablet} - 1px)) {
+  .admin-page-header {
+    flex-direction: column;
+  }
+
+  .admin-new-case {
+    align-self: flex-start;
+  }
+}
